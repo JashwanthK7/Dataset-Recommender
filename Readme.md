@@ -12,6 +12,19 @@ The application uses an asynchronous retrieval pipeline paired with a multi-stag
 * **Heuristic Metadata Scoring:** Evaluates dataset metadata including update recency, file size, license openness, and file format suitability.
 * **LLM Evaluation:** Passes the top filtered candidates to the Qwen2.5-7B-Instruct language model via the Hugging Face Inference API. The model evaluates contextual relevance and generates a custom justification for each dataset.
 
+## File Structure
+
+* **`app.py`**: The main entry point of the application. It contains the Gradio UI logic and coordinates the retrieval and ranking workflows.
+* **`config.py`**: Centralized configuration file for API endpoints, model names, and the scoring weights used in the ranking algorithm.
+* **`utils.py`**: Contains shared helper functions, such as text cleaning and common data transformation utilities.
+* **`retrievers/`**: A module containing individual scripts to fetch data concurrently from Kaggle, Hugging Face, and Data.gov.
+* **`ranking/`**: Contains the logic for the multi-stage ranking system, including the FAISS semantic search and heuristic metadata scoring.
+* **`processing/`**: Handles data normalization and the intent parsing logic to extract constraints from user queries.
+* **`Dockerfile`**: Defines the container environment, ensuring the app runs consistently across different systems.
+* **`.dockerignore`**: Prevents large or sensitive files like `venv` and `.env` from being copied into the container image.
+* **`requirements.txt`**: Lists all Python dependencies required to run the application, such as `faiss-cpu` and `gradio`.
+* **`env.example`**: A template file showing the required environment variables without exposing actual private API keys.
+  
 ## Scoring Algorithm
 
 The final suitability score is calculated using a dynamic weighted ensemble. The system computes the relevance score by applying intent-based weight boosts to base configuration weights. 
