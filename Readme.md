@@ -20,7 +20,9 @@ The final calculation follows this mathematical structure:
 
 $$\text{Relevance} = \sum_{i=1}^{n} (w_i \times s_i)$$
 
-Where:$w_i$: Represents the dynamically resolved weight for a specific dimension (e.g., higher weight for 'license' if the user specifies 'open source').$s_i$: Represents the normalized score ($0.0$ to $1.0$) for that dimension.
+Where:
+$w_i$: Represents the dynamically resolved weight for a specific dimension.
+$s_i$: Represents the normalized score for that dimension.
 
 ## Technology Stack
 
