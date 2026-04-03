@@ -20,7 +20,7 @@ The final calculation follows this mathematical structure:
 
 $$\text{Relevance} = \sum_{i=1}^{n} (w_i \times s_i)$$
 
-Where w_i represents the dynamically resolved weight for a specific dimension and s_i represents the normalized score for that dimension. The dimensions include the language model evaluation, FAISS semantic similarity, recency, license type, size, and format.
+Where:$w_i$: Represents the dynamically resolved weight for a specific dimension (e.g., higher weight for 'license' if the user specifies 'open source').$s_i$: Represents the normalized score ($0.0$ to $1.0$) for that dimension.
 
 ## Technology Stack
 
