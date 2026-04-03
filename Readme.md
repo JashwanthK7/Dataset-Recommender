@@ -18,7 +18,7 @@ The final suitability score is calculated using a dynamic weighted ensemble. The
 
 The final calculation follows this mathematical structure:
 
-Relevance = Sum of (w_i * s_i)
+$$\text{Relevance} = \sum_{i=1}^{n} (w_i \times s_i)$$
 
 Where w_i represents the dynamically resolved weight for a specific dimension and s_i represents the normalized score for that dimension. The dimensions include the language model evaluation, FAISS semantic similarity, recency, license type, size, and format.
 
